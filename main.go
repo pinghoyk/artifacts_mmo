@@ -35,7 +35,7 @@ type InventoryItem struct {
 func mustGetEnv (key string) string {
 	value := os.Getenv(key)
 	if value == "" {
-		log.Fatalf("Токена и ссылки не существует! %s", key )
+		log.Fatalf("Токен или ссылка не существует! %s", key )
 	}
 	return value
 }
