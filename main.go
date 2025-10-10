@@ -35,7 +35,19 @@ type InventoryItem struct {
 	Quantity 	int 	`json:"quantity"`
 }
 
+func mustGetEnv (key string) string {
+	value := os.Getenv(key)
+	if value == "" {
+		log.Fatalf("Токена и ссылки не существует! %s", key )
+	}
+	return value
+}
+
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Ошибка загрузки файла .env")
+	}
 
 }
