@@ -29,5 +29,10 @@ func findProjectRoot() string {
 }
 
 func main() {
+	projectRoot := findProjectRoot()
+	envPath := filepath.Join(projectRoot, ".env")
+	if err := godotenv.Load(envPath); err != nil {
+		log.Printf("Предупреждение: не удалось загрузить .env из %s: %v", envPath, err)
+	}
 
 }
