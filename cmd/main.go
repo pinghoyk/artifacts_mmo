@@ -35,4 +35,8 @@ func main() {
 		log.Printf("Предупреждение: не удалось загрузить .env из %s: %v", envPath, err)
 	}
 
+	token := os.Getenv("TOKEN")
+	if token == "" {
+		log.Fatal("Ошибка: переменная окружения TOKEN не задана")
+	}
 }
