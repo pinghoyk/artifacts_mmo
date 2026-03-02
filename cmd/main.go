@@ -39,4 +39,12 @@ func main() {
 	if token == "" {
 		log.Fatal("Ошибка: переменная окружения TOKEN не задана")
 	}
+
+	gamebot := bot.NewBot(token)
+	if err := gamebot.LoadCharacters(); err != nil {
+		fmt.Println("Ошибка загрузки персонажей:", err)
+		return
+	}
+	fmt.Printf("\n[DONE] Загружено персонажей: %d\n\n", len(gamebot.GetAllCharacters()))
+
 }
